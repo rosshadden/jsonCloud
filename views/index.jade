@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form.container
+  form.container(method='post')
     h1= title
-    textarea#code(name='code')
+    textarea#code(name='code')= code
     input.btn.btn-primary#share(type='submit', value='&#9729; Share')

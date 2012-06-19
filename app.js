@@ -1,19 +1,17 @@
-/**
- * Module dependencies.
- */
-
+////////////////////////////////////////////////////////////////
+//	MODULES
 var express = require('express'),
-	routes = require('./routes'),
 	http = require('http');
 
 var app = express();
 
+////////////////////////////////////////////////////////////////
+//	CONFIGURATION
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
-	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
@@ -25,8 +23,40 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+////////////////////////////////////////////////////////////////
+//	SETUP
+var library = {};
 
+////////////////////////////////////////////////////////////////
+//	ROUTES
+app.get('/', function(request, response){
+	response.render('index', {
+		title: 'JSON.cloud();',
+		code: ''
+	});
+});
+
+app.post('/:id?', function(request, response){
+	var code = request.body.code,
+		json = JSON.parse(code),
+		id = request.params.id || ~~(Math.random() * 1e4);
+
+	library[id] = code;
+
+	response.redirect('/' + id);
+});
+
+app.get('/:id', function(request, response){
+	var id = request.params.id;
+
+	response.render('index', {
+		title: 'JSON.cloud();',
+		code: library[id] || '{}'
+	});
+});
+
+////////////////////////////////////////////////////////////////
+//	START
 http.createServer(app).listen(app.get('port'), function(){
 	console.log("Express server listening on port " + app.get('port'));
 });
