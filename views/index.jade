@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  textarea#code
-  a.button#doit Doit!
+  form.container
+    h1= title
+    textarea#code(name='code')
+    input.btn.btn-primary#share(type='submit', value='&#9729; Share')
