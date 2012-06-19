@@ -1,0 +1,22 @@
+colors(category = -1)
+  categories = ()
+
+  trees()
+    return #7da858 #5b4c37 #3e5720 #46492c #58732c #569230 #494f1f #45432c #71a43f #95755c #8d7a69 #424a23 #4d5b37 #1c250a #594c29
+
+  space()
+    return #000
+
+  section = -1
+  section = 0 if category is 'trees'
+  section = 1 if category is 'space'
+
+  //  trees
+  categories[0] = trees
+  //  asdf
+  categories[1] = space
+
+  if section is -1
+    return categories
+  else
+    return categories[section]

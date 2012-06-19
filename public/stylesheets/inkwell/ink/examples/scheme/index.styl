@@ -1,0 +1,80 @@
+@import '../..'
+
+/********************/
+/* SETUP */
+body
+  background #999
+  text-align center
+
+  h1 small
+    display block
+    font-size 12px
+
+  .container
+    width (60px + 20px + 2px) * 8
+    margin 20px auto
+    border-bottom 8px solid #333
+
+    .box
+      width 60px
+      height 60px
+      margin 10px
+      float left
+      border 1px solid black
+      border-radius 8px
+      background #999
+      box-shadow 1px 1px 0 #333
+
+    br
+      clear both
+
+/********************/
+/* THE MAGICSAUCE */
+.zero
+  colors = scheme(#963)
+
+  for color, c in colors
+    .box:nth-of-type({c + 1})
+      background color
+
+      &:after
+        content s("'%s'", color)
+        color white if dark(color)
+        color black if light(color)
+
+.one
+  colors = scheme(#853f27, 2, 32)
+
+  for color, c in colors
+    .box:nth-of-type({c + 1})
+      background color
+
+      &:after
+        content s("'%s'", color)
+        color white if dark(color)
+        color black if light(color)
+
+.two
+  colors = scheme(#963 #639, results: 16)
+
+  for color, c in colors
+    .box:nth-of-type({c + 1})
+      background color
+
+      &:after
+        content s("'%s'", color)
+        color white if dark(color)
+        color black if light(color)
+
+.three
+  colors = scheme(#336 #699 #993 #939, results: 32)
+
+  for color, c in colors
+    .box:nth-of-type({c + 1})
+      background color
+
+      &:after
+        content s("'%s'", color)
+        color white if dark(color)
+        color black if light(color)
+/********************/

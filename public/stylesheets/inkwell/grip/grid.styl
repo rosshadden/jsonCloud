@@ -1,0 +1,13 @@
+$column ?= 60px
+$gutter ?= 20px
+$numColumns ?= 12
+$totalWidth = $numColumns * $column + $gutter * ($numColumns - 1)
+
+column(col)
+  width $column * col + $gutter * (col - 1)
+
+offset(col)
+  margin-left ($column + $gutter) * col + $gutter
+
+input(col)
+  width $column * col + $gutter * (col - 1) - 10px

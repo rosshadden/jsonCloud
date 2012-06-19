@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Grip - Grid</title>
+	<link href="index.css" rel="stylesheet">
+
+	<style>
+		.row{
+			border-top: 1px solid blue;
+		}
+
+		[class^="column"]{
+			border-top: 1px solid red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="span1">One</div>
+			<div class="span1">Two</div>
+			<div class="span1">Three</div>
+			<div class="span1">Four</div>
+			<div class="span1">Five</div>
+			<div class="span1">Six</div>
+			<div class="span1">Seven</div>
+			<div class="span1">Eight</div>
+			<div class="span1">Nine</div>
+			<div class="span1">Ten</div>
+			<div class="span1">Eleven</div>
+			<div class="span1">Twelve</div>
+		</div>
+
+		<div class="row">
+			<div class="span1">
+				<input type="text" class="span1">
+			</div>
+
+			<div class="span2">
+				<input type="text" class="span2">
+			</div>
+
+			<div class="span3">
+				<input type="text" class="span3">
+			</div>
+
+			<div class="span4">
+				<input type="text" class="span4">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span1">This</div>
+			<div class="span2">This</div>
+			<div class="span3">This</div>
+			<div class="span4">This</div>
+		</div>
+
+		<div class="row">
+			<div class="span1">This</div>
+			<div class="offset1 span2">This</div>
+			<div class="offset2 span3">This</div>
+			<div class="span1">This</div>
+		</div>
+	</div>
+
+	This is a basic version of the grid found in <a href="http://github.com/rosshadden/inkwell">Inkwell</a>.
+</body>
+</html>

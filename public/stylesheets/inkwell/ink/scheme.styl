@@ -1,0 +1,25 @@
+scheme(base = $base, stops = 2, results = stops * 4)
+  colors = (base)
+  degs = 360deg / stops
+  
+  if length(base) is 1
+    for stop in 1...stops
+      colors[stop] = base + (degs * stop)
+  else
+    colors = base
+    stops = length(base)
+
+  modifier = 1
+  hue = 5deg
+  lightness = 10%
+  for stop in stops..(results - 1)
+    if stop % stops is 0
+      modifier *= -1
+    
+    if modifier is 1
+      hue += 5deg
+      lightness += (100% / (results / 2))
+  
+    colors[stop] = colors[stop % stops] + hue * modifier + lightness * modifier
+
+  colors

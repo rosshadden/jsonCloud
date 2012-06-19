@@ -1,0 +1,55 @@
+buttonize(color = #ddd, radius = 4px)
+  button-paint(color)
+
+  display inline-block
+  padding 4px 10px 4px
+  border-radius radius
+  background-repeat repeat-x
+  box-shadow inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05)
+  filter unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)")
+  text-align center
+  font-weight bold
+  font-size 13px
+  vertical-align middle
+  cursor pointer
+  line-height 18px
+  -webkit-touch-callout none
+  vendor(user-select, none)
+
+  &:hover
+    background-position 0 -15px
+    transition background-position 0.1s linear
+
+  &:active,
+  &.active
+    background-image none
+    box-shadow inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05)
+
+button-paint(color)
+  colorHighlight = lighten(color, 20%)
+  isDark = dark(color)
+
+  border 1px solid #cccccc
+  border-color color color darken(color, 15%)
+  border-color rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.5)
+  background-color colorHighlight
+  background-image linear-gradient(top, colorHighlight, color)
+  filter s("progid:DXImageTransform.Microsoft.gradient(startColorstr='%s', endColorstr='%s', GradientType=0)", colorHighlight, color)
+  color #fff if isDark
+  color #333 if not isDark
+  text-shadow 0 1px 1px rgba(0, 0, 0, 0.75) if isDark
+  text-shadow 0 1px 1px rgba(255, 255, 255, 0.75) if not isDark
+
+  &:hover,
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled]
+    background-color color
+
+  &.hover
+    color @color
+
+  &:active,
+  &.active
+    background-color colorHighlight
