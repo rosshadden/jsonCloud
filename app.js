@@ -41,7 +41,7 @@ app.get('/', function(request, response){
 app.post('/:id?', function(request, response){
 	var code = request.body.code,
 		json = JSON.parse(code),
-		id = request.params.id || ~~(Math.random() * 1e4);
+		id = request.params.id || ~~(Math.random() * 1e6);
 
 	library[id] = code;
 
