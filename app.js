@@ -25,6 +25,8 @@ app.configure('development', function(){
 
 ////////////////////////////////////////////////////////////////
 //	SETUP
+var PORT = +(process.argv[2] || process.env.PORT || 3000);
+
 var library = {};
 
 ////////////////////////////////////////////////////////////////
@@ -57,6 +59,6 @@ app.get('/:id', function(request, response){
 
 ////////////////////////////////////////////////////////////////
 //	START
-http.createServer(app).listen(app.get('port'), function(){
-	console.log("Express server listening on port " + app.get('port'));
+http.createServer(app).listen(PORT, function(){
+	console.log("Express server listening on port " + PORT);//app.get('port'));
 });
