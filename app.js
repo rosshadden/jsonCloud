@@ -45,7 +45,7 @@ var generateID = function(){
 //	ROUTES
 app.get('/', function(request, response){
 	response.render('index', {
-		title: 'JSON.cloud();',
+		title: 'JS.cloud();',
 		code: ''
 	});
 });
@@ -64,7 +64,7 @@ app.get('/:id', function(request, response){
 	var id = request.params.id;
 
 	response.render('index', {
-		title: 'JSON.cloud();',
+		title: 'JS.cloud();',
 		code: library[id] || '{}'
 	});
 });
